@@ -1,13 +1,11 @@
-a, b, c = map(int, input().split())
+up, down, goal = map(int, input().split())
 
-e = c - a
-f = a - b
-g = e//f
-if e >= 0:
+D = goal - up
+climb = up - down
+
+if up == goal:
     print(1)
-elif g == 0:
-    print(2)
-elif e/f == g:
-    print(g+1)
-elif e/f > g:
-    print(g+2)
+elif (D/climb) == (D//climb):
+    print((D//climb)+1)
+else:
+    print((D//climb)+2)
