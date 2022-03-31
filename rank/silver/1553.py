@@ -1,4 +1,5 @@
-d = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+d1 = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+d2 = [(1, 0), (0, 1)]
 # y, x는 인덱스 / cnt는 도미노가 2개의 숫자로 구성되어서 구분하기 위한 용도 / k는 카운팅한 도미노의 개수
 def find(y, x, cnt, k):
     global result
@@ -9,7 +10,7 @@ def find(y, x, cnt, k):
     # 도미노 블록을 완성시킬 숫자 탐색
     if cnt % 2 == 0:
         # 현 위치의 상하좌우 탐색
-        for dy, dx in d:
+        for dy, dx in d2:
             a = ''
             # 범위 안에 들어가고 아직 확인되지 않은 곳인지 판단
             if 0 <= y+dy < 8 and 0 <= x + dx < 7 and c_arr[y+dy][x+dx] == 0:
@@ -43,7 +44,7 @@ def find(y, x, cnt, k):
                         c_arr[y + dy][x + dx] = 0
     # 다음 도미노 블록이 될 시작점 탐색
     else:
-        for dy, dx in d:
+        for dy, dx in d1:
             if 0 <= y+dy < 8 and 0 <= x + dx < 7 and c_arr[y+dy][x+dx] == 0:
                 c_arr[y+dy][x+dx] = 1
                 find(y+dy, x+dx, cnt+1, k)
