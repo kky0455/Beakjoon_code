@@ -1,9 +1,9 @@
 def find(y, x):
     global result
     cnt = 0
-    block = arr[y][x]
+    block = arr[y][x] #기준점 B, W를 판단하려고
     for i in range(8):
-        if i % 2:
+        if i % 2: # i 홀수
             for j in range(8):
                 if j % 2:
                     if arr[y+i][x+j] != block:
@@ -11,7 +11,7 @@ def find(y, x):
                 else:
                     if arr[y+i][x+j] == block:
                         cnt += 1
-        else:
+        else: # i 짝수
             for j in range(8):
                 if j % 2:
                     if arr[y+i][x+j] == block:
