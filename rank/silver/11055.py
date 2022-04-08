@@ -1,20 +1,15 @@
-def func(v, sumV, idx):
-    global result
-    if idx == A-1:
-        return
+def func(idx, v, sumV):
     for i in range(idx+1, A):
-        if arr[i] > v:
-            visited[i] = 1
-            func(arr[i], sumV + arr[i], i)
-    if result < sumV:
-        result = sumV
-        
+        if arr[i] > v and memo[i] < sumV + arr[i]:
+            memo[i] = sumV + arr[i]
+            func(i, arr[i], sumV + arr[i])
+
+
 A = int(input())
-result = 0
 arr = list(map(int, input().split()))
-visited = [0] * A
+memo = [0] * A
 for i in range(A):
-    if not visited[i]:
-        visited[i] = 1
-        func(arr[i], arr[i], i)
-print(result)
+    if not memo[i]:
+        memo[i] = arr[i]
+        func(i, arr[i], arr[i])
+print(max(memo))
