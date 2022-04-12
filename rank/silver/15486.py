@@ -1,3 +1,7 @@
+# 전 문제에서 데이터 수가 추가됐기 때문에 input방식을 변경
+import sys
+input = sys.stdin.readline
+
 N = int(input())
 arr = []
 # 입력값을 arr에 리스트형태로 저장
