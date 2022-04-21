@@ -1,35 +1,33 @@
-from collections import deque
+import heapq
 import sys
 input = sys.stdin.readline
-
+# 다익스트라를 힙큐로 풀어야하는 문제, 자세한 원리는 분석이 필요합니다...
 def dijk():
-    D = [1000000000] * N
+    D = [1000000000000000] * N
     D[0] = 0
-    q = deque([0])
+    q = []
+    heapq.heappush(q, (0, 0))
     while q:
-        b, t = q.popleft()
-        for i in range(N):
-            if not visited[i] and D[i] > t + D[] and G[V][i]:
-                D[i] = G[V][i] + D[V]
-        maxV = 1000000000
-        nextV = -1
-        for i in range(N):
-            if not visited[i] and D[i] < maxV:
-                nextV = i
-                maxV = D[i]
-        q.append(nextV)
+        d, now = heapq.heappop(q)
+        if D[now] < d:
+            continue
+        else:
+            for b, t in G[now]:
+                if not visited[b] and D[b] > t + d:
+                    D[b] = t + d
+                    heapq.heappush(q, (t+d, b))
     return D[-1]
 
 N, M = map(int, input().split())
 visited = list(map(int, input().split()))
-visited[N-1] = 0
-lenV = N - visited.count(1)
+visited[-1] = 0
 G = [[] for _ in range(N)]
 for _ in range(M):
     a, b, t = map(int, input().split())
     G[a].append((b, t))
+    G[b].append((a, t))
 a = dijk()
-if a == 1000000000:
+if a == 1000000000000000:
     print(-1)
 else:
     print(a)
