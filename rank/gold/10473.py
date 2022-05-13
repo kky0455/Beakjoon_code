@@ -2,7 +2,8 @@ import math
 import heapq
 import sys
 input = sys.stdin.readline
-
+# 시작점은 모든 지점까지 걸어가는 거리 구하고 q에 넣기
+# 그 다음부터는 다익스트라 알고리즘 진행하며 도착지점까지 짧은거리 구하기
 def dijk():
     D = [0] * (C+1)
     q = []
