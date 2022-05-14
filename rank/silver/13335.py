@@ -1,3 +1,5 @@
+# 매 순간마다 다리에 올라간 트럭의 무게합, 각 트럭이 다리에 있는 시간을 기록하며 진행
+
 n, w, L = map(int, input().split())
 t = list(map(int, input().split()))
 m = [0] * len(t)
