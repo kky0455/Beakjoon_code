@@ -1,5 +1,6 @@
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(100000)
+# 인덱스를 활용한 프리오더 찾기
 
 def find(i_s, i_e, p_s, p_e):
     print(postorder[p_e], end=' ')
