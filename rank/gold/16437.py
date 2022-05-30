@@ -1,7 +1,7 @@
 import sys
 sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
-
+# dfs를 활용 늑대와 양의 배열을 따로 만들어 문제를 푼다.
 def dfs(num):
     val = s[num]
     for i in arr[num]:
