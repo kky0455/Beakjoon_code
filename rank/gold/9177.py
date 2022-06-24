@@ -6,7 +6,7 @@ import sys
 input = sys.stdin.readline
 
 def bfs():
-    lst = deque([len(a), len(b), len(c)])
+    lst = deque([[len(a), len(b), len(c)]])
     visited = [[0] * (len(b)+1) for _ in range(len(a)+1)]
     while lst:
         A, B, C = lst.popleft()
@@ -19,10 +19,10 @@ def bfs():
             visited[A-1][B] = 1
             lst.append([A-1, B, C-1])
         if B > 0 and b[B-1] == c[C-1] and visited[A][B-1] == 0:
-            visited[A][B-1]
+            visited[A][B-1] = 1
             lst.append([A, B-1, C-1])
-        else:
-            return False
+    else:
+        return False
     
 
 N = int(input())
