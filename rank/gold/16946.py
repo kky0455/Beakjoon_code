@@ -1,3 +1,7 @@
+# bfs를 활용한 탐색문제
+# 벽이 아닌곳의 영역을 구분하여 딕셔너리에 저장
+# 벽인 곳에서 탐색을 진행하여 갈 수 있는 거리의 수를 저장한다.
+
 import sys
 input = sys.stdin.readline
 from collections import deque
